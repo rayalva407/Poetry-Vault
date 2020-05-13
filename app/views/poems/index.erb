@@ -1,0 +1,5 @@
+<h1>Poems</h1>
+
+<% @poems.each do |poem| %>
+  <p><a href="/posts/<%= poem.id %>"><%= poem.title %></a></p>
+<% end %>
