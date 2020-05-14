@@ -5,12 +5,14 @@ class PoemsController < ApplicationController
   end
 
   get '/poems/new' do
-    @poems = Poem.all
+    @users = User.all
     erb :"poems/new"
   end
 
   post '/poems' do
-
+    binding.pry
+    @poem = Poem.create()
+    redirect to '/poems/:id'
   end
 
   get '/poems/:id' do

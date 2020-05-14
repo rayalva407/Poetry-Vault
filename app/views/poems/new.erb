@@ -1,11 +1,16 @@
-<h1>Add a Poem</h1>
-<br><br>
-<form method="POST" action"/posts">
+<form method="POST" action="/poems">
+<h2>Author's Username</h2>
+<% @users.each do |user| %>
+    <input type="radio" name="user_id" id="<%= user.id %>" value="<%= user.id %>"><%= user.username %><br>
+  <% end %>
+  <br>
+  <h1>Add a Poem</h1>
+  <br><br>
   <label for "title">Title:</label>
   <input type="text" name="title" id="title"> 
   <br><br><br>
-  <label for "content">Content</label>
-  <br>
+  <label for "content">Content:</label>
+  <br><br>
   <textarea name="content" rows="25" cols="100"></textarea>
   <br><br>
   <input type="submit">
