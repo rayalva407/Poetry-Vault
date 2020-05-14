@@ -11,7 +11,9 @@ class PoemsController < ApplicationController
 
   post '/poems' do
     binding.pry
-    @poem = Poem.create()
+    user = User.find_by_id(params[:user_id])
+    poem = Poem.create(:title => params[:title], :content => params[:content], :user_id => params[:user_id])
+    
     redirect to '/poems/:id'
   end
 
