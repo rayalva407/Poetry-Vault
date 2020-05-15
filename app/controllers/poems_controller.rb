@@ -1,5 +1,7 @@
 class PoemsController < ApplicationController
+
   get '/poems' do
+    binding.pry
     @poems = Poem.all
     erb :"poems/index"
   end
