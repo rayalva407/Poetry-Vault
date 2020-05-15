@@ -1,9 +1,4 @@
 <form method="POST" action="/poems">
-<h2>Author Username</h2>
-<% @users.each do |user| %>
-    <input type="radio" name="user_id" id="<%= user.id %>" value="<%= user.id %>"><%= user.username %><br>
-  <% end %>
-  <br>
   <h1>Add a Poem</h1>
   <br><br>
   <label for "title">Title:</label>
