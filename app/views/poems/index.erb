@@ -1,5 +1,9 @@
 <h1>Poems</h1>
-
+<br>
 <% @poems.each do |poem| %>
   <p><a href="/poems/<%= poem.id %>"><%= poem.title %></a></p>
 <% end %>
+<br><br>
+<a href="/poems/new"><button>Create Poem</button></a>
+<br><br>
+<a href="/logout"><button>Logout</button></a>
