@@ -29,10 +29,10 @@ class PoemsController < ApplicationController
   patch '/poems/:id' do
     binding.pry
     @poem = Poem.find_by_id(params[:id])
-    if @poem.update(title: params[:title], content: params[:body])
-      redirect to "poems/#{@post.id}"
+    if @poem.update(title: params[:title], content: params[:content])
+      redirect to "poems/#{@poem.id}"
     else
-      redirect to "poems/#{@post.id}/edit"
+      redirect to "poems/#{@poem.id}/edit"
     end
   end
 
@@ -43,5 +43,13 @@ class PoemsController < ApplicationController
     else
       redirect to '/poems'
     end
+  end
+
+  delete '/poems/:id' do
+    @poem = Poem.find_by_id(params[:id])
+    if @poem
+      @poem.delete
+    end
+    redirect to '/poems'
   end
 end
