@@ -46,10 +46,14 @@ class PoemsController < ApplicationController
   patch '/poems/:id' do
     if logged_in?
       @poem = current_user.poems.find_by_id(params[:id])
-      if @poem.update(title: params[:title], content: params[:content])
-        redirect to "poems/#{@poem.id}"
+      if @poem
+        if @poem.update(title: params[:title], content: params[:content])
+          redirect to "poems/#{@poem.id}"
+        else
+          redirect to "poems/#{@poem.id}/edit"
+        end
       else
-        redirect to "poems/#{@poem.id}/edit"
+        redirect to '/poems'
       end
     else
       redirect to '/login'
@@ -66,6 +70,7 @@ class PoemsController < ApplicationController
       end
     else
       redirect to '/login'
+    end
   end
 
   delete '/poems/:id' do
@@ -77,5 +82,6 @@ class PoemsController < ApplicationController
       redirect to '/poems'
     else
       redirect to '/login'
+    end
   end
 end
