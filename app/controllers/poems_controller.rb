@@ -3,6 +3,7 @@ class PoemsController < ApplicationController
   get '/poems' do
     if logged_in?
       @poems = current_user.poems
+      @user = current_user
       erb :"poems/index"
     else
       redirect '/login'

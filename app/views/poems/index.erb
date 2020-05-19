@@ -1,4 +1,4 @@
-<h1>Poems</h1>
+<h1><%= @user.username %>'s Poems</h1>
 <br>
 <% @poems.each do |poem| %>
   <p><a href="/poems/<%= poem.id %>"><%= poem.title %></a></p>
